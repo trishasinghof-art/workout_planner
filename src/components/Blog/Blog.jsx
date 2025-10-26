@@ -1,5 +1,8 @@
 import React from 'react';
-import tipsImg from '../../assets/tips_1.jpg';
+
+import tipsImg1 from '../../assets/tips&tricks (1).jpeg';
+import tipsImg2 from '../../assets/tips&tricks (2).jpeg';
+import tipsImg3 from '../../assets/tips&tricks (3).jpeg';
 
 function Blog() {
   return (
@@ -12,7 +15,7 @@ function Blog() {
       <div className="blog-grid">
         <article className="post">
           <div className="img-placeholder post-img">
-            <img className="post-img-el" src={tipsImg} alt="Beginner's guide" />
+            <img className="post-img-el" src={tipsImg2} alt="Beginner's guide" />
           </div>
           <h4>A Beginner's Guide</h4>
           <p>Starting your fitness journey the right way.</p>
@@ -20,7 +23,7 @@ function Blog() {
 
         <article className="post">
           <div className="img-placeholder post-img">
-            <img className="post-img-el" src={tipsImg} alt="Beginner's guide" />
+            <img className="post-img-el" src={tipsImg1} alt="Beginner's guide" />
           </div>
           <h4>Benefits for Your Body and Mind</h4>
           <p>Why consistent training improves overall wellbeing.</p>
@@ -28,7 +31,7 @@ function Blog() {
 
         <article className="post">
           <div className="img-placeholder post-img">
-            <img className="post-img-el" src={tipsImg} alt="Beginner's guide" />
+            <img className="post-img-el" src={tipsImg3} alt="Beginner's guide" />
           </div>
           <h4>Why Working Out With Others</h4>
           <p>The social benefits that keep you accountable.</p>

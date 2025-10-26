@@ -9,7 +9,7 @@ import Membership from './Membership';
 import Testimonials from './Testimonials';
 import Blog from './Blog/Blog';
 import JoinCta from './JoinCta';
-import SignIn from './Signin/SignIn';
+import Signup from './Signup/Signup';
 import Footer from './Common/Footer';
 
 
@@ -25,7 +25,7 @@ function Home() {
       <Testimonials />
       <Blog />
       <JoinCta />
-      <SignIn />
+      <Signup />
       <Footer />
     </>
   );

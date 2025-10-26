@@ -5,8 +5,9 @@ function Hero() {
     <section className="hero">
       <div className="container hero-grid">
         <div className="hero-left">
-          <h1 className="hero-eyebrow">Build</h1>
+          
           <h2 className="hero-main">
+            <span className="solid">Build</span><br />
             <span className="stroke">Strength</span><br />
             <span className="solid">Boost</span><br />
             <span className="stroke">Confidence</span>
@@ -43,9 +44,12 @@ function Hero() {
       <div className="container category-strip">
         <ul>
           <li>Mind & Body</li>
+          {/* <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> */}
           <li>Cardio</li>
+          {/* <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> */}
           <li >Strength</li>
-          <li>Mind & Body</li>
+          {/* <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> */}
+          <li>Yoga</li>
         </ul>
       </div>
     </section>

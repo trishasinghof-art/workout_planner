@@ -1,5 +1,7 @@
 import React from 'react';
-import trainer1 from '../../assets/trainers_1.png';
+import trainer1 from '../../assets/trainer1.jpeg';
+import trainer2 from '../../assets/trainer2.jpeg';
+import trainer3 from '../../assets/trainer3.jpeg';
 
 
 function Trainers() {
@@ -11,31 +13,31 @@ function Trainers() {
       <div className="trainers-grid">
         <div className="trainer-card">
           <div className="img-placeholder trainer-img">
-            <img className="trainer-photo" src={trainer1} alt="John Carter"/>
+            <img className="trainer-photo" src={trainer1} alt="Trainer"/>
           </div>
           <div className="trainer-info">
             <h5>John Carter</h5>
-            <p>Strength Coach</p>
+            <p>Personal Trainer</p>
           </div>
         </div>
 
         <div className="trainer-card">
           <div className="img-placeholder trainer-img">
-            <img className="trainer-photo" src={trainer1} alt="John Carter"/>
+            <img className="trainer-photo" src={trainer3} alt="Trainer"/>
           </div>
           <div className="trainer-info">
-            <h5>Derek Steward</h5>
+            <h5>Rose Ambrose</h5>
             <p>Fitness Trainer</p>
           </div>
         </div>
 
         <div className="trainer-card">
           <div className="img-placeholder trainer-img">
-            <img className="trainer-photo" src={trainer1} alt="John Carter"/>
+            <img className="trainer-photo" src={trainer2} alt="Trainer"/>
           </div>
           <div className="trainer-info">
             <h5>James Dell</h5>
-            <p>Personal Trainer</p>
+            <p>Strength Coach</p>
           </div>
         </div>
       </div>

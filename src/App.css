@@ -2,7 +2,8 @@
   --bg:#07101a;         
   --card:#0b1a22;      
   --muted:#aab6bf;
-  --accent:#84ff6a;     
+  --accent:#B144FF; 
+  --boldness:rgb(60, 10, 91);   
   --white:#f6f8fb;
   --glass: rgba(255,255,255,0.03);
   --radius:16px;
@@ -111,7 +112,7 @@ body{
   font-weight:800;
 }
 .hero-main .stroke{
-  -webkit-text-stroke:2px rgba(255,255,255,0.06);
+  -webkit-text-stroke:2px rgba(152, 151, 151, 0.607);
   color:transparent;
   display:inline-block;
   animation:slideIn 0.9s ease .05s both;
@@ -198,12 +199,13 @@ body{
 /* category strip */
 .category-strip{
   margin-top:20px;
-  background:linear-gradient(90deg, rgba(132,255,106,0.12), rgba(109,228,126,0.06));
+  background:rgba(107, 9, 181, 0.845);
   padding:12px 24px;
   border-radius:12px;
+  display:flex; justify-content:center; 
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.02);
 }
-.category-strip ul{ list-style:none; display:flex; gap:22px; margin:0; padding:0; align-items:center }
+.category-strip ul{ list-style:none; display:flex; margin:0; padding:0; align-items:center }
 .category-strip li{ color:#031011; background:transparent; padding:8px 16px; border-radius:8px; font-weight:700; }
 .category-strip li.active{ background:var(--accent); color:#05221a; box-shadow: 0 8px 20px rgba(6,34,24,0.12) }
 
@@ -230,23 +232,27 @@ body{
 .card-img{ height:230px; border-radius:12px; margin-bottom:12px; }
 
 /* trainers */
-.trainers{ margin-top:40px; text-align:left }
+.trainers{ margin-top:40px; text-align:center;  }
+.trainers h3{font-size: 30px;}
 .trainers-grid{
   display:flex;
   gap:18px;
   margin-top:18px;
+  justify-content:center;
   flex-wrap:wrap;
 }
 .trainer-card{
   background:transparent;
-  width:calc(33.333% - 12px);
+  width:auto;
   min-width:220px;
   border-radius:12px;
   padding:8px;
   text-align:left;
+  
 }
 .trainer-img{
   height:250px;
+  padding: 8px 0 8px 0  ;
   border-radius:14px;
   margin-bottom:10px;
   display:flex;
@@ -263,7 +269,8 @@ body{
   display:block;
   border-radius:12px;
 }
-.trainer-info h5{ margin:0 0 6px 0; font-size:16px; font-weight:700 }
+
+.trainer-info h5{ margin:0 0 6px 0; font-size:18px; font-weight:700 }
 .trainer-info p{ margin:0; color:var(--muted); font-size:14px }
 
 /* overview & targets */
@@ -286,22 +293,23 @@ body{
 .membership-grid{ display:flex; gap:18px; margin-top:12px; flex-wrap:wrap }
 .membership-card{ flex:1 1 320px; padding:22px; border-radius:14px; min-width:260px; position:relative }
 .membership-card.dark{ background:#0b1620; border:1px solid rgba(255,255,255,0.02) }
-.membership-card.premium{ background:linear-gradient(180deg,#9efc98,#5fe48f); color:#061212; box-shadow: 0 20px 50px rgba(97,232,135,0.08) }
+.membership-card.premium{ background:var(--boldness); color:#ffffff; box-shadow: 0 20px 50px rgba(97,232,135,0.08) }
 .membership-card h4{ margin:0; font-weight:800 }
 .membership-card .price{ font-size:28px; margin:14px 0; font-weight:800 }
 
 /* testimonials */
-.testimonials{ margin-top:44px }
+.testimonials{ margin-top:44px ;text-align:center;}
+.testimonials h3{ font-size:30px; }
 .testimonial-grid{ display:flex; gap:18px; margin-top:18px; flex-wrap:wrap }
 .testimonial{ background:var(--card); padding:18px; border-radius:12px; flex:1 1 300px; min-width:220px; }
-.test-img{ height:220px; border-radius:10px; margin-bottom:12px }
+.test-img{ height:320px; border-radius:10px; margin-bottom:12px }
 .test-img img, .test-photo{ width:100%; height:100%; display:block; border-radius:10px }
 
 /* blog */
 .blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:18px }
 .post{ background:var(--card); border-radius:12px; padding:12px; transition:transform .2s ease }
 .post:hover{ transform:translateY(-6px) }
-.post-img{ height:230px; border-radius:10px; margin-bottom:12px }
+.post-img{ height:340px; border-radius:10px; margin-bottom:12px }
 .post-img-el{
   width:100%;
   height:100%;
@@ -316,15 +324,15 @@ body{
 
 /* signin */
 .signin{ margin-top:30px; margin-bottom:30px }
-.signin-grid{ display:grid; grid-template-columns:1fr 420px; gap:18px; align-items:center }
+.signin-grid{ display:grid; grid-template-columns:1fr 500px; gap:18px; align-items:center }
 .signin-form{ padding:20px; border-radius:12px }
 .signin-form form label{ display:block; margin-bottom:10px; color:var(--muted) }
-.signin-form input{ width:100%; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:var(--white) }
+.signin-form input{ width:100%; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background: #260249; color:var(--white) }
 .signin-form .link{ display:inline-block; margin-top:12px;margin-left:20px; color:var(--muted); text-decoration:none; }
 
 
-.signin-illustration { display:flex; align-items:center; justify-content:flex-start; overflow:hidden }
-.signin-illustration-img{ height:100%; width:auto; max-width:46%; object-fit:contain; object-position:left center; display:block }
+.signin-illustration { display:flex; align-items:center; justify-content:center; overflow:hidden;}
+.signin-illustration-img{ height:auto; width:65%; object-fit:contain; object-position:center; display:block;}
 
 
 /* footer */
