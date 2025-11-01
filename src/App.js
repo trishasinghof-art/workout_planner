@@ -7,7 +7,8 @@ import BlogHome from './components/Blog/BlogHome';
 import TrainersHome from './components/Trainers/TrainersHome';
 import SigninHome from './components/Signin/SigninHome';
 import SignupHome from './components/Signup/SignupHome';
-import DetailsSection from './DetailsSection/DetailsSection';
+import DetailsSection from './components/DetailsSection/DetailsSection';
+
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path="/signin" element={<SigninHome />} /> 
           <Route path="/signup" element={<SignupHome />} />
           <Route path="/details" element={<DetailsSection />} />
+          
         </Routes>
     </Router>
     </>
