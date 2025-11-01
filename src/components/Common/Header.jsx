@@ -15,7 +15,8 @@ function Header() {
           <Link to="/programs">Programs</Link>
           <Link to="/trainers">Trainers</Link>
           <Link to="/blog">Blog</Link>
-          <Link to="/signin" className="btn-outline">Signin</Link>
+          <Link to="/signin" className="btn-outline">Login</Link>
+          <Link to="/details" className="btn-primary">Get Started</Link>
         </nav>
 
         <button type="button" className="hamburger" aria-label="menu">

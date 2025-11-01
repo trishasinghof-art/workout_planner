@@ -1,5 +1,6 @@
 import React from 'react';
 import mainImg from '../assets/hero.png';
+import main2Img from '../assets/main4.png';
 function Hero() {
   return (
     <section className="hero">
@@ -35,7 +36,7 @@ function Hero() {
 
         <div className="hero-right">
           <div className="img-placeholder hero-placeholder" >
-            <img className="hero-dots" src={mainImg} alt=""/>
+            <img className="hero-dots" src={main2Img} alt=""/>
           </div>
           
         </div>

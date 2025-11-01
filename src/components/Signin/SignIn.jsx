@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import signinImg from '../../assets/signup.jpeg';
 
 
@@ -15,9 +16,11 @@ const isStrongPassword = (pw) => {
 function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [touched, setTouched] = useState({ email: false, password: false });
   const [submitError, setSubmitError] = useState('');
   const [submittedAttempted, setSubmittedAttempted] = useState(false);
+  const navigate = useNavigate();
 
   const emailError = () => {
     if (!(touched.email || submittedAttempted)) return '';
@@ -46,6 +49,8 @@ function SignIn() {
 
     setSubmitError('');
     console.log('Signing in with', { email, password });
+    // Redirect to details form after successful sign in
+    navigate('/details');
   };
 
   const canSubmit = () => isValidEmail(email) && isStrongPassword(password);
@@ -78,15 +83,40 @@ function SignIn() {
 
             <label>
               <span>Password</span>
-              <input
-                type="password"
-                placeholder="Enter password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                onBlur={() => setTouched((t) => ({ ...t, password: true }))}
-                aria-invalid={!!passwordError()}
-                aria-describedby="password-error"
-              />
+                <div className="input-with-toggle">
+                  <input
+                    type={showPassword ? 'text' : 'password'}
+                    placeholder="Enter password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    onBlur={() => setTouched((t) => ({ ...t, password: true }))}
+                    aria-invalid={!!passwordError()}
+                    aria-describedby="password-error"
+                  />
+                  <button
+                    type="button"
+                    className="pw-toggle"
+                    aria-pressed={showPassword}
+                    aria-label={showPassword ? 'Hide password' : 'Show password'}
+                    onClick={() => setShowPassword((s) => !s)}
+                  >
+                    {showPassword ? (
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <title>Hide password</title>
+                        <path d="M3 3l18 18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M10.58 10.58a3 3 0 0 0 4.24 4.24" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M2.3 12.2C4.7 7.6 8.8 5 12 5c2.3 0 4.6.9 6.7 2.6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M14.4 16.1c-1.3.8-2.9.9-4.2.1" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    ) : (
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <title>Show password</title>
+                        <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
+                    )}
+                  </button>
+                </div>
             </label>
             {passwordError() && (
               <div id="password-error" className="form-error" role="alert">{passwordError()}</div>

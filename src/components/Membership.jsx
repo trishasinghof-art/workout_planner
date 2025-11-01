@@ -9,7 +9,8 @@ function Membership() {
           <h4>Basic membership</h4>
           <div className="price">$130</div>
           <p>Access to gym equipment and standard classes.</p>
-          <a className="btn-outline" href="#">Choose</a>
+          <br></br>
+          <a className="btn-primary" href="#">Choose</a>
         </div>
 
         <div className="membership-card premium">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function JoinCta() {
   return (
@@ -6,7 +7,7 @@ function JoinCta() {
       <div className="container join-inner">
         <h3>Join Now and Reach Your Fitness Goals</h3>
         <p>Start your transformation with a program built for results.</p>
-        <a href="#" className="btn-primary big">Join Now</a>
+        <Link to="/signup" className="btn-primary big">Join Now</Link>
       </div>
     </section>
   );
