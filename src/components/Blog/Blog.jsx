@@ -1,5 +1,4 @@
 import React from 'react';
-
 import tipsImg1 from '../../assets/tips&tricks (1).jpeg';
 import tipsImg2 from '../../assets/tips&tricks (2).jpeg';
 import tipsImg3 from '../../assets/tips&tricks (3).jpeg';

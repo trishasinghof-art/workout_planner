@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import signinImg from '../../assets/signup.jpeg';
 
-// validation helpers
+
 const isValidEmail = (email) => {
-  // simple but effective RFC-ish regex for common emails
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
   return re.test(email);
 };
 
 const isStrongPassword = (pw) => {
-  // at least 8 chars, one uppercase, one lowercase, one digit, one special
   const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
   return re.test(pw);
 };
@@ -37,9 +35,7 @@ function SignIn() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // mark that a submit was attempted so required warnings appear
     setSubmittedAttempted(true);
-    // mark touched so errors show if user tried to submit straight away
     setTouched({ email: true, password: true });
     const eErr = emailError();
     const pErr = passwordError();
@@ -49,8 +45,6 @@ function SignIn() {
     }
 
     setSubmitError('');
-    // proceed with real submit / auth flow
-    // TODO: call signin API or context method
     console.log('Signing in with', { email, password });
   };
 
