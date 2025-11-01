@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from '../Common/Header';
-import Footer from '../Common/Footer';
 import SignIn from './SignIn';
 
 function SigninHome({ title, description }) {
@@ -8,7 +7,6 @@ function SigninHome({ title, description }) {
     <>
     <Header/>
     <SignIn/>
-    <Footer/>
     </>
   );
 }

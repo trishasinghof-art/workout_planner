@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from '../Common/Header';
-import Footer from '../Common/Footer';
 import Signup from './Signup';
 
 function SignupHome({ title, description }) {
@@ -8,7 +7,6 @@ function SignupHome({ title, description }) {
     <>
     <Header/>
     <Signup/>
-    <Footer/>
     </>
   );
 }
