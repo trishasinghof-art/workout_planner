@@ -90,9 +90,9 @@ const ProfileForm = () => {
         </div>
 
         <div className="training-level">
-          <button className="level-btn">Beginner<br/><span>New to fitness</span></button>
-          <button className="level-btn">Intermediate<br/><span>Regular workouts</span></button>
-          <button className="level-btn">Advanced<br/><span>Experienced</span></button>
+          <button className="level-btn">Beginner<br/><br/><span>New to fitness</span></button>
+          <button className="level-btn">Intermediate<br/><br/><span>Regular workouts</span></button>
+          <button className="level-btn">Advanced<br/><br/><span>Experienced</span></button>
           
         </div>
 
@@ -103,6 +103,20 @@ const ProfileForm = () => {
             <option>Weight Loss</option>
             <option>Muscle Gain</option>
             <option>Fitness Maintenance</option>
+          </select>
+        </div>
+        <br/>
+
+        <div className="form-group">
+          <label>Workouts per week</label>
+          <select >
+            <option>How many days can you commit</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
           </select>
         </div>
       </section>
@@ -116,7 +130,7 @@ const ProfileForm = () => {
           onClick={() => {
             // TODO: submit profile data to API
             console.log('Profile completed');
-            navigate('/');
+            navigate('/dashboard');
           }}
         >
           Complete Profile

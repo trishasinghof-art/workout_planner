@@ -8,6 +8,8 @@ import TrainersHome from './components/Trainers/TrainersHome';
 import SigninHome from './components/Signin/SigninHome';
 import SignupHome from './components/Signup/SignupHome';
 import DetailsSection from './components/DetailsSection/DetailsSection';
+import Dashboard from './components/Dashboard/Dashboard';
+
 
 
 
@@ -23,6 +25,7 @@ function App() {
           <Route path="/signin" element={<SigninHome />} /> 
           <Route path="/signup" element={<SignupHome />} />
           <Route path="/details" element={<DetailsSection />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           
         </Routes>
     </Router>
