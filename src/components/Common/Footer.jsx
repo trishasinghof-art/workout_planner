@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { FaFacebookF, FaInstagram, FaTwitter, FaPinterestP, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
@@ -9,10 +10,10 @@ const Footer = () => {
           <div className="footer-col">
             <h2 className="footer-logo">BodySync</h2>
             <ul>
-              <li><a href="#">Programs</a></li>
-              <li><a href="#">Trainers</a></li>
-              <li><a href="#">Blogs</a></li>
-              <li><a href="#">Signin</a></li>
+              <li><Link to="/programs">Programs</Link></li>
+              <li><Link to="/trainers">Trainers</Link></li>
+              <li><Link to="/blog">Blogs</Link></li>
+              <li><Link to="/signin">Signin</Link></li>
             </ul>
           </div>
 

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 
 
 const ProfileForm = () => {
   const navigate = useNavigate();
+  const [level, setLevel] = useState(null);
   return (
     <div className="profile-page">
       <h1 className="profile-title">
@@ -90,10 +91,33 @@ const ProfileForm = () => {
         </div>
 
         <div className="training-level">
-          <button className="level-btn">Beginner<br/><br/><span>New to fitness</span></button>
-          <button className="level-btn">Intermediate<br/><br/><span>Regular workouts</span></button>
-          <button className="level-btn">Advanced<br/><br/><span>Experienced</span></button>
-          
+          <button
+            type="button"
+            className={"level-btn" + (level === 'beginner' ? ' active' : '')}
+            aria-pressed={level === 'beginner'}
+            onClick={() => setLevel('beginner')}
+          >
+            Beginner<br/><br/><span>New to fitness</span>
+          </button>
+
+          <button
+            type="button"
+            className={"level-btn" + (level === 'intermediate' ? ' active' : '')}
+            aria-pressed={level === 'intermediate'}
+            onClick={() => setLevel('intermediate')}
+          >
+            Intermediate<br/><br/><span>Regular workouts</span>
+          </button>
+
+          <button
+            type="button"
+            className={"level-btn" + (level === 'advanced' ? ' active' : '')}
+            aria-pressed={level === 'advanced'}
+            onClick={() => setLevel('advanced')}
+          >
+            Advanced<br/><br/><span>Experienced</span>
+          </button>
+
         </div>
 
         <div className="form-group">

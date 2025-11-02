@@ -1,10 +1,15 @@
 import React from "react";
+import Header2 from "../Common/Header2";
+import Footer from "../Common/Footer";
 
 
 const Dashboard = () => {
   return (
-    <div className="dashboard">
-      {/* Header Greeting */}
+    <>
+      <Header2 />
+      <main className="container">
+        <div className="dashboard">
+      
       <div className="dashboard-header">
         <h2>
           <span className="wave">👋</span> Hello, Max
@@ -18,22 +23,22 @@ const Dashboard = () => {
 
       <div className="dashboard-main">
         <div className="left-section">
-          {/* Today's Workout */}
           <div className="section-header">
-            <button className="nav-btn">◀</button>
+            
             <h3>Today's workout</h3>
-            <button className="nav-btn">▶</button>
+            
           </div>
 
-          {/* Daily Challenge Card */}
+          
           <div className="card challenge-card">
             <div className="card-content">
               <h4>Daily Challenge</h4>
-              <button className="start-btn">Start ▸</button>
+              <span> <button className="start-btn">Start ▸</button></span>
             </div>
+            
           </div>
 
-          {/* Full Body Strength Card */}
+          
           <div className="card workout-card">
             <h4>Full Body Strength</h4>
             <p className="time-label">Time</p>
@@ -62,9 +67,9 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Right Sidebar */}
+        
         <div className="right-section">
-          {/* Weekly Goal */}
+          
           <div className="card side-card">
             <h4>Weekly Goal</h4>
             <p>Progress</p>
@@ -74,7 +79,7 @@ const Dashboard = () => {
             <p className="progress-text">Keep going! 2 more workouts to reach your goal.</p>
           </div>
 
-          {/* Upcoming */}
+         
           <div className="card side-card upcoming">
             <h4>Upcoming</h4>
             <ul>
@@ -84,7 +89,10 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-    </div>
+        </div>
+      </main>
+      <Footer />
+    </>
   );
 };
 
