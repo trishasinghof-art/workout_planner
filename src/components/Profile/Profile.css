@@ -1,0 +1,119 @@
+.profile-container {
+  background-color: #0c1323;
+  color: #fff;
+  min-height: 100vh;
+  padding: 40px 120px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* Header */
+.profile-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.profile-image {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border: 4px solid #a259ff;
+  object-fit: cover;
+}
+
+.profile-quote {
+  color: #aab3c5;
+  margin-top: 10px;
+}
+
+.profile-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 20px;
+}
+
+.profile-stats div {
+  text-align: center;
+}
+
+.profile-stats h3 {
+  font-size: 24px;
+  color: #fff;
+}
+
+/* Info cards */
+.info-card {
+  background-color: #111a2d;
+  border-radius: 20px;
+  padding: 25px 30px;
+  margin-bottom: 25px;
+}
+
+.info-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.edit-btn {
+  background: none;
+  border: none;
+  color: #a259ff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  row-gap: 15px;
+  column-gap: 20px;
+}
+
+.label {
+  color: #8893a8;
+  font-size: 14px;
+}
+
+/* Progress section */
+.progress-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.progress-card {
+  flex: 1 1 45%;
+  border-radius: 25px;
+  padding: 25px;
+  min-width: 250px;
+  color: white;
+}
+
+.purple-light {
+  background-color: #a259ff;
+}
+
+.purple-dark {
+  background-color: #5a1bb6;
+}
+
+.progress-card h4 {
+  font-size: 18px;
+  margin-bottom: 5px;
+}
+
+.progress-card p {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.progress-card small {
+  color: #ddd;
+}
+
+.icon {
+  font-size: 30px;
+  margin-bottom: 10px;
+}

@@ -14,7 +14,7 @@ function Header2() {
           <Link to="/">Home</Link>
           <Link >Workout Library</Link>
           <Link >Diet</Link>
-          <Link >Profile</Link>
+          <Link to="/profile">Profile</Link>
         </nav>
 
         <button type="button" className="hamburger" aria-label="menu">

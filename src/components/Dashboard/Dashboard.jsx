@@ -61,7 +61,7 @@ const Dashboard = () => {
             </div>
 
             <div className="buttons">
-              <button className="see-btn">See workout</button>
+              
               <button className="start-btn">Start workout ▸</button>
             </div>
           </div>

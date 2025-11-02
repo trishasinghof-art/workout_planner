@@ -3,6 +3,8 @@ import highIntensityImg from '../../assets/high intensity.jpeg';
 import weightLiftingImg from '../../assets/weight lifting.jpeg';
 import cardio from '../../assets/cardio.jpeg';
 import crossFit from '../../assets/cross fit.jpeg';
+import pilates from '../../assets/Pilates.jpeg';
+import rolling from '../../assets/rolling.jpeg';
 
 
 function Programs() {
@@ -44,6 +46,22 @@ function Programs() {
           </div>
           <h4>High-intensity training</h4>
           <p>Short, intense workouts for maximum efficiency and results.</p>
+        </article>
+
+        <article className="program-card">
+          <div className="img-placeholder card-img">
+            <img className="card-img" src={pilates} alt="pilates"/>
+          </div>
+          <h4>Flexibility & Mobility Training</h4>
+          <p>Improving range of motion and balance.</p>
+        </article>
+
+        <article className="program-card">
+          <div className="img-placeholder card-img">
+            <img className="card-img" src={rolling} alt="Foam Rolling"/>
+          </div>
+          <h4>Recovery & Low-Impact Workouts</h4>
+          <p>Relaxation, recovery, and gentle movement.</p>
         </article>
       </div>
     </section>

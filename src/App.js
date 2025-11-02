@@ -9,6 +9,7 @@ import SigninHome from './components/Signin/SigninHome';
 import SignupHome from './components/Signup/SignupHome';
 import DetailsSection from './components/DetailsSection/DetailsSection';
 import Dashboard from './components/Dashboard/Dashboard';
+import Profile from './components/Profile/Profile';
 
 
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/signup" element={<SignupHome />} />
           <Route path="/details" element={<DetailsSection />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/profile" element={<Profile />} />
           
         </Routes>
     </Router>
