@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { signUpWithEmail } from '../../firebase';
 import signinImg from '../../assets/signup.jpeg';
 
 const isValidEmail = (email) => {
@@ -14,8 +15,7 @@ const isStrongPassword = (pw) => {
 };
 
 const isValidPhone = (phone) => {
-  if (!phone) return true; // optional
-  // very simple digits-only check (allow spaces, dashes, parentheses)
+  if (!phone) return true; 
   const cleaned = phone.replace(/[\s-()+.]/g, '');
   return /^\d{7,15}$/.test(cleaned);
 };
@@ -31,6 +31,7 @@ function Signup() {
   const [submitError, setSubmitError] = useState('');
   const [submittedAttempted, setSubmittedAttempted] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const emailError = () => {
     if (!(touched.email || submittedAttempted)) return '';
@@ -71,10 +72,15 @@ function Signup() {
       return;
     }
     setSubmitError('');
-    // TODO: replace with real signup API call
-    console.log('Signing up', { email, phone, password });
-    // Redirect to details form after successful signup
-    navigate('/details');
+    signUpWithEmail(email, password)
+      .then(() => {
+        const dest = location.state?.from?.pathname || '/details';
+        navigate(dest);
+      })
+      .catch((err) => {
+        console.error('Signup error', err);
+        setSubmitError(err?.message || 'Signup failed.');
+      });
   };
 
   return (

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useAuth } from '../../contexts/AuthContext';
 
 function Header2() {
+  const { user, logout } = useAuth();
   return (
     <header className="site-header">
       <div className="container header-inner">
@@ -15,6 +16,15 @@ function Header2() {
           <Link >Workout Library</Link>
           <Link >Diet</Link>
           <Link to="/profile">Profile</Link>
+          {!user ? (
+            <>
+              <Link to="/signin" className="btn-outline">Login</Link>
+            </>
+          ) : (
+            <>
+              <button type="button" className="btn-outline" onClick={logout}>Logout</button>
+            </>
+          )}
         </nav>
 
         <button type="button" className="hamburger" aria-label="menu">

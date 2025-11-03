@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import { useAuth } from '../../contexts/AuthContext';
 
 function Header() {
+  const { user, logout } = useAuth();
   return (
     <header className="site-header">
       <div className="container header-inner">
@@ -11,12 +12,20 @@ function Header() {
         </div>
 
         <nav className="main-nav">
-          <Link to="/">Home</Link>
+          <Link to="/dashboard">Dashboard</Link>
+           <Link to="/">Home</Link>
           <Link to="/programs">Programs</Link>
           <Link to="/trainers">Trainers</Link>
           <Link to="/blog">Blog</Link>
-          <Link to="/signin" className="btn-outline">Login</Link>
-          <Link to="/details" className="btn-primary">Get Started</Link>
+          {!user ? (
+                      <>
+                        <Link to="/signin" className="btn-outline">Login</Link>
+                      </>
+                    ) : (
+                      <>
+                        <button type="button" className="btn-outline" onClick={logout}>Logout</button>
+                      </>
+                    )}
         </nav>
 
         <button type="button" className="hamburger" aria-label="menu">

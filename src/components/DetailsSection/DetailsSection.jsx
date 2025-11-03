@@ -146,13 +146,11 @@ const ProfileForm = () => {
       </section>
 
       <div className="profile-actions">
-        <Link to="/signup" className="btn-ghost">Cancel</Link>
         
         <button
           type="button"
           className="btn-primary"
           onClick={() => {
-            // TODO: submit profile data to API
             console.log('Profile completed');
             navigate('/dashboard');
           }}

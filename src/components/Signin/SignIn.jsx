@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
+import { signInWithEmail } from '../../firebase';
 import signinImg from '../../assets/signup.jpeg';
 
 
@@ -21,6 +22,7 @@ function SignIn() {
   const [submitError, setSubmitError] = useState('');
   const [submittedAttempted, setSubmittedAttempted] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const emailError = () => {
     if (!(touched.email || submittedAttempted)) return '';
@@ -48,9 +50,15 @@ function SignIn() {
     }
 
     setSubmitError('');
-    console.log('Signing in with', { email, password });
-    // Redirect to details form after successful sign in
-    navigate('/details');
+    signInWithEmail(email, password)
+      .then(() => {
+        const dest = location.state?.from?.pathname || '/dashboard';
+        navigate(dest);
+      })
+      .catch((err) => {
+        console.error('Sign in error', err);
+        setSubmitError(err?.message || 'Sign in failed.');
+      });
   };
 
   const canSubmit = () => isValidEmail(email) && isStrongPassword(password);
