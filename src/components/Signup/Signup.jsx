@@ -17,7 +17,7 @@ const isStrongPassword = (pw) => {
 const isValidPhone = (phone) => {
   if (!phone) return true; 
   const cleaned = phone.replace(/[\s-()+.]/g, '');
-  return /^\d{7,15}$/.test(cleaned);
+  return /^\d{10}$/.test(cleaned);
 };
 
 function Signup() {
@@ -42,7 +42,7 @@ function Signup() {
 
   const phoneError = () => {
     if (!(touched.phone || submittedAttempted)) return '';
-    if (phone && !isValidPhone(phone)) return 'Please enter a valid phone number.';
+    if (phone && !isValidPhone(phone)) return 'Please enter a valid 10-digit phone number.';
     return '';
   };
 

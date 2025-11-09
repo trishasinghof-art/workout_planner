@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     try {
       await signOutUser();
-      // navigate to signin after logout
+      // navigate to signin after logout directly 
       navigate('/signin');
     } catch (err) {
       console.error('Sign out failed', err);

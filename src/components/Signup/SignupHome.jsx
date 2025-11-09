@@ -1,5 +1,5 @@
 import React from 'react'
-import Header from '../Common/Header';
+
 import Signup from './Signup';
 import { useAuth } from '../../contexts/AuthContext';
 import { Navigate } from 'react-router-dom';
@@ -12,7 +12,7 @@ function SignupHome({ title, description }) {
 
   return (
     <>
-      <Header/>
+      
       <Signup/>
     </>
   );

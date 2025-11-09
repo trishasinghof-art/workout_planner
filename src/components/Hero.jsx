@@ -29,7 +29,7 @@ function Hero() {
           </div>
 
           <div className="hero-cta">
-            <a href="#" className="btn-primary">Get Started</a>
+            <a href="/signin" className="btn-primary">Get Started</a>
             <a href="/programs" className="btn-ghost">View Program</a>
           </div>
         </div>

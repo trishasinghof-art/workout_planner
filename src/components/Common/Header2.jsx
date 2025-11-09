@@ -12,7 +12,7 @@ function Header2() {
         </div>
 
         <nav className="main-nav">
-          <Link to="/">Home</Link>
+          <Link to="/dashboard">Home</Link>
           <Link >Workout Library</Link>
           <Link >Diet</Link>
           <Link to="/profile">Profile</Link>
