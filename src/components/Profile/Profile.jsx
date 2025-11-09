@@ -1,22 +1,37 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Profile.css";
 import Header2 from "../Common/Header2";
 import Footer from "../Common/Footer";
+import { useAuth } from "../../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 import profileImg from "../../assets/profile.jpeg";
 
 const Profile = () => {
+  const { user, profile, profileLoading } = useAuth();
+  const navigate = useNavigate();
+
   return (
     <>
       <Header2 />
     <div className="profile-container">
+      {profileLoading && (
+        <div className="spinner" role="status" aria-live="polite">Loading profile...</div>
+      )}
+      {!profileLoading && !profile && (
+        <div className="card side-card" style={{marginBottom:'20px'}}>
+          <h3>Profile Incomplete</h3>
+          <p>You haven't finished setting up your profile yet.</p>
+          <button className="btn-primary" onClick={() => navigate('/details')}>Complete Profile Now</button>
+        </div>
+      )}
       <div className="profile-header">
         <img
           src={profileImg}
           alt="Profile"
           className="profile-image"
         />
-        <h2>Max Johnson</h2>
+  <h2>{profile?.fullName || user?.email || 'Your Name'}</h2>
         <p className="profile-quote">
           Striving for progress, not perfection
         </p>
@@ -40,33 +55,33 @@ const Profile = () => {
       <div className="info-card">
         <div className="info-header">
           <h3>Personal Information</h3>
-          <button className="edit-btn">Edit</button>
+          <button className="edit-btn" onClick={() => navigate('/details')}>Edit</button>
         </div>
 
         <div className="info-grid">
           <div>
             <p className="label">Full Name</p>
-            <p>Max Johnson</p>
+            <p>{profile?.fullName || '-'}</p>
           </div>
           <div>
             <p className="label">Email</p>
-            <p>max.johnson@email.com</p>
+            <p>{user?.email || '-'}</p>
           </div>
           <div>
             <p className="label">Age</p>
-            <p>28 years</p>
+            <p>{profile?.age ? `${profile.age} years` : '-'}</p>
           </div>
           <div>
             <p className="label">Gender</p>
-            <p>Male</p>
+            <p>{profile?.gender || '-'}</p>
           </div>
           <div>
             <p className="label">Height</p>
-            <p>180 cm</p>
+            <p>{profile?.height ? `${profile.height} ${profile?.heightUnit || 'cm'}` : '-'}</p>
           </div>
           <div>
             <p className="label">Weight</p>
-            <p>75 kg</p>
+            <p>{profile?.weight ? `${profile.weight} ${profile?.weightUnit || 'kg'}` : '-'}</p>
           </div>
         </div>
       </div>
@@ -77,19 +92,19 @@ const Profile = () => {
         <div className="info-grid">
           <div>
             <p className="label">Primary Goal</p>
-            <p>Build Muscle</p>
+            <p>{profile?.goal || '-'}</p>
           </div>
           <div>
             <p className="label">Target Weight</p>
-            <p>80 kg</p>
+            <p>{profile?.targetWeight ? `${profile.targetWeight} ${profile?.targetUnit || 'kg'}` : '-'}</p>
           </div>
           <div>
             <p className="label">Training Level</p>
-            <p>Advanced</p>
+            <p>{profile?.level || '-'}</p>
           </div>
           <div>
             <p className="label">Workouts Per Week</p>
-            <p>5 days</p>
+            <p>{profile?.workoutsPerWeek ? `${profile.workoutsPerWeek} days` : '-'}</p>
           </div>
         </div>
       </div>

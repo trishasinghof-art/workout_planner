@@ -1,12 +1,14 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { onAuthStateChangedListener, signOutUser } from '../firebase';
+import { onAuthStateChangedListener, signOutUser, getUserProfile } from '../firebase';
 import { useNavigate } from 'react-router-dom';
 
-const AuthContext = createContext({ user: null, loading: true });
+const AuthContext = createContext({ user: null, loading: true, profile: null, profileLoading: false });
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [profile, setProfile] = useState(null);
+  const [profileLoading, setProfileLoading] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -17,18 +19,44 @@ export function AuthProvider({ children }) {
     return unsubscribe;
   }, []);
 
+  
+  const refreshProfile = async () => {
+    if (!user) {
+      setProfile(null);
+      return;
+    }
+    setProfileLoading(true);
+    try {
+      const data = await getUserProfile(user.uid);
+      setProfile(data || null);
+    } catch (err) {
+      console.error('Failed to load profile', err);
+    } finally {
+      setProfileLoading(false);
+    }
+  };
+
+  // Whenever auth user changes, refresh profile
+  useEffect(() => {
+    if (user) {
+      refreshProfile();
+    } else {
+      setProfile(null);
+    }
+  }, [user]);
+
   const logout = async () => {
     try {
       await signOutUser();
-      // navigate to signin after logout directly 
-      navigate('/signin');
+      // redirect to home for a cleaner UX after logout
+      navigate('/');
     } catch (err) {
       console.error('Sign out failed', err);
     }
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, logout }}>
+    <AuthContext.Provider value={{ user, loading, logout, profile, profileLoading, refreshProfile }}>
       {children}
     </AuthContext.Provider>
   );

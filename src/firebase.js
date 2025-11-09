@@ -1,5 +1,13 @@
 import { initializeApp } from 'firebase/app';
 import {
+	getFirestore,
+	doc,
+	setDoc,
+	getDoc,
+	serverTimestamp,
+	enableIndexedDbPersistence,
+} from 'firebase/firestore';
+import {
 	getAuth,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
@@ -27,6 +35,9 @@ if (!firebaseConfig.apiKey) {
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
+export const db = getFirestore(app);
+
+enableIndexedDbPersistence(db).catch(() => {});
 
 export async function signUpWithEmail(email, password) {
 	return createUserWithEmailAndPassword(auth, email, password);
@@ -42,6 +53,25 @@ export async function signOutUser() {
 
 export function onAuthStateChangedListener(callback) {
 	return onAuthStateChanged(auth, callback);
+}
+
+// Firestore helpers for user profile
+export async function saveUserProfile(uid, profile) {
+	if (!uid) throw new Error('Missing user id');
+	const ref = doc(db, 'users', uid);
+	const data = {
+		...profile,
+		updatedAt: serverTimestamp(),
+	};
+	await setDoc(ref, data, { merge: true });
+	return true;
+}
+
+export async function getUserProfile(uid) {
+	if (!uid) throw new Error('Missing user id');
+	const ref = doc(db, 'users', uid);
+	const snap = await getDoc(ref);
+	return snap.exists() ? snap.data() : null;
 }
 
 export default app;

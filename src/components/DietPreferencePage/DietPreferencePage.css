@@ -1,0 +1,142 @@
+/* Page Layout */
+.diet-page {
+  width: 100%;
+  padding: 50px 60px;
+  text-align: center;
+  background-color: #09131f;
+  color: white;
+}
+
+.diet-title {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.diet-subtitle {
+  font-size: 18px;
+  opacity: 0.8;
+  margin-bottom: 50px;
+}
+
+/* Card Wrapper */
+.diet-card-wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+/* Diet Card */
+.diet-card {
+  width: 42%;
+  background-color: #ffffff10;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Image container */
+.diet-image-container {
+  height: 330px;
+  position: relative;
+  overflow: hidden;
+}
+
+.diet-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Overlay */
+.diet-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+
+/* Icon */
+.diet-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  font-size: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 700;
+  color: white;
+}
+
+.green-icon {
+  background-color: #1dbf5f;
+}
+
+.orange-icon {
+  background-color: #ff7433;
+}
+
+/* Card Content */
+.diet-card-content {
+  padding: 25px;
+  text-align: left;
+}
+
+.diet-card-content h3 {
+  font-size: 24px;
+  margin-bottom: 8px;
+}
+
+.diet-card-content p {
+  font-size: 16px;
+  opacity: 0.9;
+  margin-bottom: 25px;
+}
+
+/* Select Button */
+.select-btn {
+  width: 80%;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+  color: white;
+}
+
+.green-btn {
+  background-color: #0c8c45;
+}
+
+.orange-btn {
+  background-color: #cc4920;
+}
+
+/* Card Background Shades */
+.green-bg {
+  background: linear-gradient(180deg, #2bcf73 0%, #1c7f47 100%);
+}
+
+.orange-bg {
+  background: linear-gradient(180deg, #ff7c50 0%, #d34217 100%);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .diet-card-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .diet-card {
+    width: 90%;
+  }
+}
