@@ -43,6 +43,7 @@ export function AuthProvider({ children }) {
     } else {
       setProfile(null);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user]);
 
   const logout = async () => {

@@ -19,9 +19,9 @@ const Footer = () => {
 
           <div className="footer-col">
             <ul>
-              <li><a href="#">Consumer care</a></li>
-              <li><a href="#">Members</a></li>
-              <li><a href="#">Bodysync® partners</a></li>
+              <li><button type="button" className="footer-link">Consumer care</button></li>
+              <li><button type="button" className="footer-link">Members</button></li>
+              <li><button type="button" className="footer-link">Bodysync® partners</button></li>
               
             </ul>
           </div>
@@ -42,11 +42,11 @@ const Footer = () => {
         </div>
 
         <div className="footer-social">
-          <a href="#"><FaFacebookF /></a>
-          <a href="#"><FaInstagram /></a>
-          <a href="#"><FaTwitter /></a>
-          <a href="#"><FaPinterestP /></a>
-          <a href="#"><FaYoutube /></a>
+          <button type="button" className="social-link" aria-label="Facebook"><FaFacebookF /></button>
+          <button type="button" className="social-link" aria-label="Instagram"><FaInstagram /></button>
+          <button type="button" className="social-link" aria-label="Twitter"><FaTwitter /></button>
+          <button type="button" className="social-link" aria-label="Pinterest"><FaPinterestP /></button>
+          <button type="button" className="social-link" aria-label="YouTube"><FaYoutube /></button>
         </div>
       </div>
 

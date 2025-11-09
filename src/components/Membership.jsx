@@ -10,14 +10,14 @@ function Membership() {
           <div className="price">$130</div>
           <p>Access to gym equipment and standard classes.</p>
           <br></br>
-          <a className="btn-primary" href="#">Choose</a>
+          <button className="btn-primary" type="button">Choose</button>
         </div>
 
         <div className="membership-card premium">
           <h4>Premium membership</h4>
           <div className="price">$230</div>
           <p>All access pass with personalized coaching and advanced classes.</p>
-          <a className="btn-primary" href="#">Choose</a>
+          <button className="btn-primary" type="button">Choose</button>
         </div>
       </div>
     </section>

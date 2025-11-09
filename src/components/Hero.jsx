@@ -1,5 +1,4 @@
 import React from 'react';
-import mainImg from '../assets/hero.png';
 import main2Img from '../assets/main4.png';
 function Hero() {
   return (

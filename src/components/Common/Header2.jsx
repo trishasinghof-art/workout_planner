@@ -13,7 +13,7 @@ function Header2() {
 
         <nav className="main-nav">
           <Link to="/dashboard">Dashboard</Link>
-          <Link >Workout Library</Link>
+          <Link to="/">Workout Library</Link>
           <Link to="/diet">Diet</Link>
           <Link to="/profile">Profile</Link>
           {!user ? (
