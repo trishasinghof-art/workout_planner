@@ -30,13 +30,13 @@ const Dashboard = () => {
           </div>
 
           
-          <div className="card challenge-card">
+          {/* <div className="card challenge-card">
             <div className="card-content">
               <h4>Daily Challenge</h4>
               <span> <button className="start-btn">Start ▸</button></span>
             </div>
             
-          </div>
+          </div> */}
 
           
           <div className="card workout-card">
@@ -51,6 +51,10 @@ const Dashboard = () => {
               </div>
               <p className="sets">3 sets of 12 reps</p>
             </div>
+            <div className="buttons">
+              
+              <span><button className="start-btn">Start Exercise ▸</button></span>
+            </div>
 
             <div className="exercise">
               <div>
@@ -59,11 +63,15 @@ const Dashboard = () => {
               </div>
               <p className="sets">3 sets of 15 reps</p>
             </div>
-
             <div className="buttons">
               
-              <button className="start-btn">Start workout ▸</button>
+              <span><button className="start-btn">Start Exercise ▸</button></span>
             </div>
+
+            {/* <div className="buttons">
+              
+              <button className="start-btn">Start workout ▸</button>
+            </div> */}
           </div>
         </div>
 
