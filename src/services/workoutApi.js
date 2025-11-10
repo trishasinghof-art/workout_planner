@@ -63,42 +63,6 @@ function calculateDuration(exercises) {
   return Math.round(totalSeconds / 60);
 }
 
-
-function getDefaultExercises(level) {
-  const levelLower = level?.toLowerCase() || 'beginner';
-  
-  if (levelLower === 'advanced') {
-    return [
-      { name: 'Barbell Squats', sets: 4, reps: 8, rest: 90, weight: 60 },
-      { name: 'Bench Press', sets: 4, reps: 8, rest: 90, weight: 50 },
-      { name: 'Deadlifts', sets: 3, reps: 6, rest: 120, weight: 80 },
-      { name: 'Pull-ups', sets: 3, reps: 10, rest: 90 },
-      { name: 'Overhead Press', sets: 3, reps: 8, rest: 90, weight: 35 }
-    ];
-  } else if (levelLower === 'intermediate') {
-    return [
-      { name: 'Goblet Squats', sets: 3, reps: 12, rest: 75 },
-      { name: 'Push-ups', sets: 3, reps: 15, rest: 60 },
-      { name: 'Dumbbell Rows', sets: 3, reps: 12, rest: 75 },
-      { name: 'Lunges', sets: 3, reps: 12, rest: 60 },
-      { name: 'Plank', sets: 3, reps: 45, rest: 60 }
-    ];
-  } else {
-    return [
-      { name: 'Bodyweight Squats', sets: 3, reps: 12, rest: 60 },
-      { name: 'Push-ups', sets: 3, reps: 10, rest: 60 },
-      { name: 'Plank', sets: 3, reps: 30, rest: 45 },
-      { name: 'Lunges', sets: 3, reps: 10, rest: 60 },
-      { name: 'Mountain Climbers', sets: 3, reps: 20, rest: 60 }
-    ];
-  }
-}
-
-function capitalize(str) {
-  if (!str) return str;
-  return str.charAt(0).toUpperCase() + str.slice(1);
-}
-
 export async function getExerciseDetails(exerciseId) {
   console.log('getExerciseDetails called with:', exerciseId);
   // TODO: Implement when exercise detail API is available

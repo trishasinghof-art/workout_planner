@@ -3,7 +3,6 @@ import { predictWorkoutType } from '../../services/workoutTypeApi';
 import { getExerciseSuggestions } from '../../services/exerciseApi';
 import { getWorkoutRecommendations } from '../../services/workoutApi';
 
-
 /**
  * API Tester Component
  * Use this to test the integrated workout and exercise APIs
