@@ -205,9 +205,7 @@ const Dashboard = () => {
                     </p>
                   </div>
                   <div className="buttons">
-                    <span>
-                      <button className="start-btn">Start Exercise ▸</button>
-                    </span>
+                    
                   </div>
                 </div>
               ))}
@@ -227,7 +225,7 @@ const Dashboard = () => {
               </div>
               <div className="buttons">
                 
-                <span><button className="start-btn">Start Exercise ▸</button></span>
+                
               </div>
 
               <div className="exercise">
@@ -239,7 +237,7 @@ const Dashboard = () => {
               </div>
               <div className="buttons">
                 
-                <span><button className="start-btn">Start Exercise ▸</button></span>
+                
               </div>
             </div>
           ) : null}
