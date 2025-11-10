@@ -3,11 +3,6 @@ const WORKOUT_TYPE_API_URL = USE_PROXY
   ? '/api/workout-type'  // Proxy endpoint
   : 'https://workout-type-api.onrender.com';  // Direct endpoint for production
 
-/**
- * Predicts the workout type for a user based on their profile
- * @param {Object} userProfile - User profile data
- * @returns {Promise<Object>} Predicted workout type
- */
 export async function predictWorkoutType(userProfile) {
   try {
     const requestBody = {
@@ -50,7 +45,6 @@ export async function predictWorkoutType(userProfile) {
     };
   } catch (error) {
     console.error('Error predicting workout type:', error);
-    // Return default workout type on error
     return {
       workoutType: 'Full Body',
       confidence: null,

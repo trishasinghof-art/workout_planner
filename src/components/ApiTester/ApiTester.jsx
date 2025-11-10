@@ -2,9 +2,7 @@ import React, { useState } from 'react';
 import { predictWorkoutType } from '../../services/workoutTypeApi';
 import { getExerciseSuggestions } from '../../services/exerciseApi';
 import { getWorkoutRecommendations } from '../../services/workoutApi';
-import { calculateMacros } from '../../services/macroApi';
-import { generateMealPlan } from '../../services/mealPlanApi';
-import { getDietPlan } from '../../services/nutritionApi';
+
 
 /**
  * API Tester Component
