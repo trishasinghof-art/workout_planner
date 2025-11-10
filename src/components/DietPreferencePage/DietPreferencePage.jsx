@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Header2 from "../Common/Header2";
 import Footer from "../Common/Footer";
 import "./DietPreferencePage.css";
@@ -6,6 +7,12 @@ import vegImg from "../../assets/veg.jpeg";
 import nonVegImg from "../../assets/nonveg.jpeg";
 
 const DietPreferencePage = () => {
+  const navigate = useNavigate();
+
+  const handleDietSelection = (dietType) => {
+    navigate("/diet-chart", { state: { dietType } });
+  };
+
   return (
     <>
       <Header2 />
@@ -28,7 +35,7 @@ const DietPreferencePage = () => {
           <div className="diet-card-content">
             <h3>Vegetarian</h3>
             <p>Plant-based nutrition for optimal health and wellness</p>
-            <button className="select-btn green-btn">Select This Option</button>
+            <button className="select-btn green-btn" onClick={() => handleDietSelection("Vegetarian")}>Select This Option</button>
           </div>
         </div>
 
@@ -44,7 +51,7 @@ const DietPreferencePage = () => {
           <div className="diet-card-content">
             <h3>Non-Vegetarian</h3>
             <p>Balanced protein-rich meals for peak performance</p>
-            <button className="select-btn orange-btn">Select This Option</button>
+            <button className="select-btn orange-btn" onClick={() => handleDietSelection("Non-Vegetarian")}>Select This Option</button>
           </div>
         </div>
 

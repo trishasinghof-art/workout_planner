@@ -12,6 +12,8 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Profile from './components/Profile/Profile';
 import RequireAuth from './components/Common/RequireAuth';
 import DietPreferencePage from './components/DietPreferencePage/DietPreferencePage';
+import DietChart from './components/DietChart/DietChart';
+import ApiTester from './components/ApiTester/ApiTester';
 
 
 
@@ -30,6 +32,8 @@ function App() {
         <Route path="/dashboard" element={<RequireAuth><Dashboard /></RequireAuth>} />
         <Route path="/profile" element={<RequireAuth><Profile /></RequireAuth>} />
         <Route path="/diet" element={<RequireAuth><DietPreferencePage /></RequireAuth>} />
+        <Route path="/diet-chart" element={<RequireAuth><DietChart /></RequireAuth>} />
+        <Route path="/api-tester" element={<ApiTester />} />
       </Routes>
     </>
   );

@@ -17,14 +17,14 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="footer-col">
+          {/* <div className="footer-col">
             <ul>
               <li><button type="button" className="footer-link">Consumer care</button></li>
               <li><button type="button" className="footer-link">Members</button></li>
               <li><button type="button" className="footer-link">Bodysync® partners</button></li>
               
             </ul>
-          </div>
+          </div> */}
 
           <div className="footer-col subscribe">
             <p className="subscribe-text">Get the freshest BodySync news</p>
