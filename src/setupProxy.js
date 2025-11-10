@@ -1,7 +1,6 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 module.exports = function(app) {
-  // Proxy for workout type API
   app.use(
     '/api/workout-type',
     createProxyMiddleware({
@@ -20,7 +19,6 @@ module.exports = function(app) {
     })
   );
 
-  // Proxy for exercise API
   app.use(
     '/api/exercise',
     createProxyMiddleware({
@@ -39,7 +37,6 @@ module.exports = function(app) {
     })
   );
 
-  // Proxy for macro calculator API
   app.use(
     '/api/macro',
     createProxyMiddleware({
@@ -58,7 +55,6 @@ module.exports = function(app) {
     })
   );
 
-  // Proxy for meal plan API
   app.use(
     '/api/meal-plan',
     createProxyMiddleware({

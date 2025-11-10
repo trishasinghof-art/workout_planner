@@ -65,12 +65,10 @@ function calculateDuration(exercises) {
 
 export async function getExerciseDetails(exerciseId) {
   console.log('getExerciseDetails called with:', exerciseId);
-  // TODO: Implement when exercise detail API is available
   return Promise.reject(new Error('Exercise details API not yet implemented'));
 }
 
 export async function saveWorkoutProgress(userId, workoutData) {
   console.log('saveWorkoutProgress called with:', userId, workoutData);
-  // TODO: Implement when progress tracking API is available
   return Promise.reject(new Error('Progress tracking API not yet implemented'));
 }

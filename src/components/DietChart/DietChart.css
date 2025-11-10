@@ -10,7 +10,6 @@ body {
   margin: auto;
 }
 
-/* Header */
 .nutrition-header h2 {
   font-size: 24px;
   margin-bottom: 5px;
@@ -20,7 +19,6 @@ body {
   opacity: 0.8;
 }
 
-/* Quote Box */
 .quote-box {
   background: linear-gradient(90deg, #a020f0, #7d08ff);
   padding: 40px;
@@ -43,7 +41,6 @@ body {
   opacity: 0.7;
 }
 
-/* Macros */
 .section-title {
   margin-top: 30px;
   margin-bottom: 15px;
@@ -87,7 +84,6 @@ body {
 .carbs { background: #005fbd; }
 .protein { background: #7d2cff; }
 
-/* Meal Plan */
 .meal-plan-box {
   background: #0f2336;
   margin-top: 15px;

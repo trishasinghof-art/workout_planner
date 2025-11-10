@@ -1,8 +1,3 @@
-/**
- * Mock Nutrition Data
- * Used for testing the frontend before the actual API is ready
- */
-
 export const mockVegetarianDiet = {
   dietType: "Vegetarian",
   totalCalories: 1847,
@@ -328,12 +323,6 @@ export const mockMuscleGainDiet = {
   quoteSub: "Consistent protein intake for maximum gains"
 };
 
-/**
- * Get mock diet plan based on diet type and goal
- * @param {string} dietType - vegetarian, non-vegetarian, etc.
- * @param {string} goal - weight loss, muscle gain, maintenance
- * @returns {Object} Diet plan
- */
 export function getMockDietPlan(dietType = "Vegetarian", goal = "maintenance") {
   const normalizedDietType = dietType.toLowerCase();
   const normalizedGoal = goal ? goal.toLowerCase() : 'maintenance';
@@ -341,17 +330,14 @@ export function getMockDietPlan(dietType = "Vegetarian", goal = "maintenance") {
 
   let baseDiet;
 
-  // Select base diet based on goal
   if (normalizedGoal.includes('loss') || normalizedGoal.includes('cut')) {
     baseDiet = mockWeightLossDiet;
   } else if (normalizedGoal.includes('gain') || normalizedGoal.includes('bulk') || normalizedGoal.includes('muscle')) {
     baseDiet = mockMuscleGainDiet;
   } else {
-    // Maintenance - use diet type directly
     baseDiet = isVegetarian ? mockVegetarianDiet : mockNonVegetarianDiet;
   }
 
-  // If vegetarian, convert protein sources in meals
   if (isVegetarian && (baseDiet === mockWeightLossDiet || baseDiet === mockMuscleGainDiet)) {
     const veganizedDiet = {
       ...baseDiet,

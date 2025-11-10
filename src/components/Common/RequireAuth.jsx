@@ -11,7 +11,6 @@ function RequireAuth({ children }) {
   }
 
   if (!user) {
-    // redirect to signin
     return <Navigate to="/signin" state={{ from: location }} replace />;
   }
 

@@ -1,6 +1,3 @@
-// Example API Response Mock
-// Use this to test your frontend before your actual API is ready
-
 export const mockWorkoutResponse = {
   workoutName: "Beginner Full Body Workout",
   duration: 30,
@@ -22,14 +19,14 @@ export const mockWorkoutResponse = {
     {
       name: "Plank",
       sets: 3,
-      reps: 30, // 30 seconds
+      reps: 30,
       rest: 45,
       description: "Hold a push-up position with forearms on the ground"
     },
     {
       name: "Lunges",
       sets: 3,
-      reps: 10, // per leg
+      reps: 10,
       rest: 60,
       description: "Step forward with one leg, lowering your hips until both knees are bent at 90 degrees"
     }
@@ -45,7 +42,7 @@ export const mockIntermediateWorkout = {
       sets: 4,
       reps: 10,
       rest: 90,
-      weight: 60 // kg
+      weight: 60
     },
     {
       name: "Bench Press",
@@ -109,13 +106,12 @@ export const mockAdvancedWorkout = {
     {
       name: "Battle Ropes",
       sets: 4,
-      reps: 45, // seconds
+      reps: 45,
       rest: 60
     }
   ]
 };
 
-// Function to get mock data based on fitness level
 export function getMockWorkoutByLevel(level) {
   switch(level?.toLowerCase()) {
     case 'beginner':

@@ -1,16 +1,9 @@
-/**
- * API Testing Tool
- * Use this to test your API endpoints and see what they expect/return
- */
-
-// Test your exercise/nutrition API
 async function testNutritionAPI() {
   const API_URL = 'https://exercise-api-cvza.onrender.com';
   
   console.log('🧪 Testing Nutrition/Diet API...');
   console.log('API URL:', API_URL);
   
-  // Test different endpoints
   const endpoints = [
     { path: '/diet-plan', method: 'POST' },
     { path: '/predict', method: 'POST' },
@@ -61,7 +54,6 @@ async function testNutritionAPI() {
   }
 }
 
-// Test your workout API
 async function testWorkoutAPI() {
   const API_URL = 'https://workout-type-api.onrender.com';
   
@@ -96,7 +88,6 @@ async function testWorkoutAPI() {
   }
 }
 
-// Run all tests
 async function runTests() {
   console.log('🚀 Starting API Tests...\n');
   console.log('=' . repeat(50));
@@ -112,7 +103,6 @@ async function runTests() {
   console.log('3. What response format the API returns');
 }
 
-// Export for use in browser console
 if (typeof window !== 'undefined') {
   window.testAPIs = runTests;
   window.testNutrition = testNutritionAPI;
@@ -125,7 +115,6 @@ if (typeof window !== 'undefined') {
   console.log('  window.testWorkout()   - Test workout API only');
 }
 
-// For Node.js testing
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = { testNutritionAPI, testWorkoutAPI, runTests };
 }

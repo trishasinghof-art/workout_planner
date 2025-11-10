@@ -3,10 +3,6 @@ import { predictWorkoutType } from '../../services/workoutTypeApi';
 import { getExerciseSuggestions } from '../../services/exerciseApi';
 import { getWorkoutRecommendations } from '../../services/workoutApi';
 
-/**
- * API Tester Component
- * Use this to test the integrated workout and exercise APIs
- */
 const ApiTester = () => {
   const [workoutTypeResult, setWorkoutTypeResult] = useState(null);
   const [exerciseResult, setExerciseResult] = useState(null);
@@ -14,7 +10,6 @@ const ApiTester = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Sample user profile for testing
   const sampleProfile = {
     age: 25,
     gender: 'male',
@@ -44,7 +39,6 @@ const ApiTester = () => {
     setLoading(true);
     setError(null);
     try {
-      // First get workout type
       const workoutType = workoutTypeResult?.workoutType || 'Full Body';
       const result = await getExerciseSuggestions(workoutType, sampleProfile);
       setExerciseResult(result);

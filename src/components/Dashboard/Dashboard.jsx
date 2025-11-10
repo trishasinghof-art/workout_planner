@@ -11,12 +11,10 @@ const Dashboard = () => {
   const [fitnessLevel, setFitnessLevel] = useState("Advanced");
   const [trainingDays, setTrainingDays] = useState("5 training days");
   
-  // States for API workout data
   const [workoutData, setWorkoutData] = useState(null);
   const [loadingWorkout, setLoadingWorkout] = useState(false);
   const [workoutError, setWorkoutError] = useState(null);
 
-  // State for selected day (1-7)
   const [selectedDay, setSelectedDay] = useState(1);
 
   
@@ -51,7 +49,7 @@ const Dashboard = () => {
     }
   }, [profile, user]);
 
-  // Fetch workout recommendations from API when profile or selectedDay changes
+  
   useEffect(() => {
     const fetchWorkouts = async () => {
       if (!profile || !profile.level || !profile.workoutsPerWeek) {
@@ -63,27 +61,21 @@ const Dashboard = () => {
       setWorkoutError(null);
 
       try {
-        // Pass selectedDay to API (add to profile for future-proofing)
         const recommendations = await getWorkoutRecommendations({ ...profile, day: selectedDay });
         console.log("Raw API response:", recommendations);
 
-        // Check if the response has the expected structure
         if (!recommendations) {
           throw new Error("No data received from API");
         }
 
-        // Handle different possible response formats
         let processedData = recommendations;
 
-        // If API returns nested data, extract it
         if (recommendations.data) {
           processedData = recommendations.data;
         }
 
-        // If exercises is not an array, try to fix it
         if (!Array.isArray(processedData.exercises)) {
           console.warn("Exercises is not an array. Received:", processedData);
-          // Try to find exercises in different possible locations
           if (processedData.workout && Array.isArray(processedData.workout)) {
             processedData.exercises = processedData.workout;
           } else if (processedData.exerciseList && Array.isArray(processedData.exerciseList)) {
@@ -125,7 +117,6 @@ const Dashboard = () => {
             </>
           )}
         </div>
-        {/* Day selector capsule buttons */}
         <div style={{ marginTop: 16, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
           {[...Array(7)].map((_, idx) => (
             <button
@@ -158,7 +149,6 @@ const Dashboard = () => {
             </div>
           ) : null}
 
-          {/* Display API-based workout if available */}
           {workoutData && workoutData.exercises ? (
             <div className="card workout-card">
               <h4>{workoutData.workoutName || "Personalized Workout"}</h4>
@@ -223,7 +213,6 @@ const Dashboard = () => {
               ))}
             </div>
           ) : !loadingWorkout && !workoutError ? (
-            // Default/fallback workout
             <div className="card workout-card">
               <h4>Full Body Strength</h4>
               <p className="time-label">Time</p>
@@ -256,26 +245,7 @@ const Dashboard = () => {
           ) : null}
         </div>
 
-        
         <div className="right-section">
-          
-          <div className="card side-card">
-            <h4>Weekly Goal</h4>
-            <p>Progress</p>
-            <div className="progress-bar">
-              <div className="progress" style={{ width: "60%" }}></div>
-            </div>
-            <p className="progress-text">Keep going! 2 more workouts to reach your goal.</p>
-          </div>
-
-         
-          <div className="card side-card upcoming">
-            <h4>Upcoming</h4>
-            <ul>
-              <li>• Leg Day - Tomorrow</li>
-              <li>• Rest Day - Sunday</li>
-            </ul>
-          </div>
         </div>
       </div>
         </div>

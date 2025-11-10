@@ -44,11 +44,8 @@ function Hero() {
       <div className="container category-strip">
         <ul>
           <li>Mind & Body</li>
-          {/* <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> */}
           <li>Cardio</li>
-          {/* <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> */}
           <li >Strength</li>
-          {/* <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li> */}
           <li>Yoga</li>
         </ul>
       </div>

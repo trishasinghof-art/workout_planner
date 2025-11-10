@@ -31,7 +31,6 @@ if (!firebaseConfig.apiKey) {
   );
 }
 
-// initialize app
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
@@ -55,7 +54,6 @@ export function onAuthStateChangedListener(callback) {
 	return onAuthStateChanged(auth, callback);
 }
 
-// Firestore helpers for user profile
 export async function saveUserProfile(uid, profile) {
 	if (!uid) throw new Error('Missing user id');
 	const ref = doc(db, 'users', uid);

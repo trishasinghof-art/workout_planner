@@ -1,19 +1,8 @@
-/**
- * Macro Calculator API
- * Calculates macros based on user profile
- */
-
-// Use proxy to avoid CORS issues in development
 const USE_PROXY = process.env.NODE_ENV === 'development';
 const MACRO_API_URL = USE_PROXY 
-  ? '/api/macro'  // Proxy endpoint
-  : 'https://macro-api-igmt.onrender.com';  // Direct endpoint for production
+  ? '/api/macro'
+  : 'https://macro-api-igmt.onrender.com';
 
-/**
- * Calculates macros based on user profile
- * @param {Object} userProfile - User profile data
- * @returns {Promise<Object>} Calculated macros
- */
 export async function calculateMacros(userProfile) {
   try {
     const requestBody = {
@@ -59,16 +48,10 @@ export async function calculateMacros(userProfile) {
     };
   } catch (error) {
     console.error('Error calculating macros:', error);
-    // Return default macros based on goal
     return getDefaultMacros(userProfile.goal);
   }
 }
 
-/**
- * Get default macros based on goal
- * @param {string} goal - User's fitness goal
- * @returns {Object} Default macro values
- */
 function getDefaultMacros(goal) {
   const goalLower = goal?.toLowerCase() || 'maintenance';
   

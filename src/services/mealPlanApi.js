@@ -1,20 +1,8 @@
-/**
- * Meal Plan API
- * Generates meal plans based on macros and preferences
- */
-
-// Use proxy to avoid CORS issues in development
 const USE_PROXY = process.env.NODE_ENV === 'development';
 const MEAL_PLAN_API_URL = USE_PROXY
-  ? '/api/meal-plan'  // Proxy endpoint
-  : 'https://meal-plan-new-api.onrender.com';  // Direct endpoint for production
+  ? '/api/meal-plan'
+  : 'https://meal-plan-new-api.onrender.com';
 
-/**
- * Gets meal plan suggestions based on macros and preferences
- * @param {Object} macros - Calculated macros from macro API
- * @param {Object} userPreferences - User preferences (diet type, allergies, etc.)
- * @returns {Promise<Object>} Meal plan with meals
- */
 export async function generateMealPlan(macros, userPreferences = {}) {
   try {
     const requestBody = {
@@ -51,26 +39,15 @@ export async function generateMealPlan(macros, userPreferences = {}) {
     const data = await response.json();
     console.log('Meal Plan API Response:', data);
 
-    // Transform the response to match our app's format
     return transformMealPlanResponse(data, macros, userPreferences);
   } catch (error) {
     console.error('Error generating meal plan:', error);
-    // Return default meal plan on error
     return getDefaultMealPlan(macros, userPreferences);
   }
 }
 
-/**
- * Transforms the API response to our app's meal plan format
- * @param {Object} apiData - Raw API response
- * @param {Object} macros - Macro data
- * @param {Object} userPreferences - User preferences
- * @returns {Object} Transformed meal plan
- */
 function transformMealPlanResponse(apiData, macros, userPreferences) {
   let meals = [];
-
-  // Handle different possible response formats
   if (apiData.meals && Array.isArray(apiData.meals)) {
     meals = apiData.meals;
   } else if (apiData.meal_plan && Array.isArray(apiData.meal_plan)) {
@@ -85,7 +62,6 @@ function transformMealPlanResponse(apiData, macros, userPreferences) {
     return getDefaultMealPlan(macros, userPreferences);
   }
 
-  // Transform each meal to our format
   const transformedMeals = meals.map((meal, index) => ({
     name: meal.name || meal.meal_name || meal.meal_type || getMealName(index),
     time: meal.time || meal.meal_time || getMealTime(index),
@@ -114,25 +90,16 @@ function transformMealPlanResponse(apiData, macros, userPreferences) {
   };
 }
 
-/**
- * Get meal name based on index
- */
 function getMealName(index) {
   const names = ['Breakfast', 'Lunch', 'Snack', 'Dinner', 'Post-Workout'];
   return names[index] || `Meal ${index + 1}`;
 }
 
-/**
- * Get meal time based on index
- */
 function getMealTime(index) {
   const times = ['7:30 AM', '12:30 PM', '4:00 PM', '7:30 PM', '9:00 PM'];
   return times[index] || '12:00 PM';
 }
 
-/**
- * Get motivational quote based on goal
- */
 function getMotivationalQuote(goal) {
   const quotes = {
     'weight loss': 'Small changes lead to big transformations.',
@@ -142,9 +109,6 @@ function getMotivationalQuote(goal) {
   return quotes[goal?.toLowerCase()] || 'Fuel your body with quality nutrients.';
 }
 
-/**
- * Returns default meal plan if API fails
- */
 function getDefaultMealPlan(macros, userPreferences) {
   const isVegetarian = userPreferences.dietType?.toLowerCase().includes('veg') 
                        && !userPreferences.dietType?.toLowerCase().includes('non');

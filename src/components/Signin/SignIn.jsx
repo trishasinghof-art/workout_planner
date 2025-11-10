@@ -5,22 +5,16 @@ import signinImg from '../../assets/signup.jpeg';
 
 
 const isValidEmail = (email) => {
-  // More comprehensive email validation
-  // 1. Check basic format
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
   if (!re.test(email)) return false;
   
-  // 2. Check for valid characters before @
   const localPart = email.split('@')[0];
   if (localPart.length === 0 || localPart.length > 64) return false;
   
-  // 3. Prevent consecutive dots
   if (email.includes('..')) return false;
   
-  // 4. Prevent starting/ending with dot
   if (localPart.startsWith('.') || localPart.endsWith('.')) return false;
   
-  // 5. Check domain part
   const domain = email.split('@')[1];
   if (!domain || domain.length === 0 || domain.length > 255) return false;
   

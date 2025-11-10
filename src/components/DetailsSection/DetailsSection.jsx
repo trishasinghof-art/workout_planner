@@ -142,7 +142,6 @@ const ProfileForm = () => {
         Help us personalize your fitness journey with your details
       </p>
 
-      {/* name , age , gender */}
       <section className="profile-card">
         <div className="card-header">
           <h2>Personal Information</h2>
@@ -172,7 +171,6 @@ const ProfileForm = () => {
         </div>
       </section>
 
-      {/* height, weight, target weight */}
       <section className="profile-card">
         <div className="card-header">
           
@@ -217,7 +215,6 @@ const ProfileForm = () => {
         </div>
       </section>
 
-      {/* Fitness Level Section */}
       <section className="profile-card">
         <div className="card-header">
           

@@ -1,7 +1,7 @@
 const USE_PROXY = process.env.NODE_ENV === 'development';
 const WORKOUT_TYPE_API_URL = USE_PROXY 
-  ? '/api/workout-type'  // Proxy endpoint
-  : 'https://workout-type-api.onrender.com';  // Direct endpoint for production
+  ? '/api/workout-type'
+  : 'https://workout-type-api.onrender.com';
 
 export async function predictWorkoutType(userProfile) {
   try {

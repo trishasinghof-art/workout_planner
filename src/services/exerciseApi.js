@@ -1,20 +1,8 @@
-/**
- * Exercise Suggestion API
- * Suggests exercises based on predicted workout type
- */
-
-// Use proxy to avoid CORS issues in development
 const USE_PROXY = process.env.NODE_ENV === 'development';
 const EXERCISE_API_URL = USE_PROXY
-  ? '/api/exercise'  // Proxy endpoint
-  : 'https://exercise-api-cvza.onrender.com';  // Direct endpoint for production
+  ? '/api/exercise'
+  : 'https://exercise-api-cvza.onrender.com';
 
-/**
- * Gets exercise suggestions based on workout type
- * @param {string} workoutType - The predicted workout type
- * @param {Object} userProfile - User profile data (optional)
- * @returns {Promise<Array>} Array of suggested exercises
- */
 export async function getExerciseSuggestions(workoutType, userProfile = {}) {
   try {
     const requestBody = {
@@ -45,23 +33,14 @@ export async function getExerciseSuggestions(workoutType, userProfile = {}) {
     const data = await response.json();
     console.log('Exercise API Response:', data);
 
-    // Transform the response to match our app's format
     return transformExerciseResponse(data, userProfile.level);
   } catch (error) {
     console.error('Error fetching exercise suggestions:', error);
-    // Return default exercises on error
     return getDefaultExercises(userProfile.level || 'beginner');
   }
 }
 
-/**
- * Transforms the API response to our app's exercise format
- * @param {Object} apiData - Raw API response
- * @param {string} fitnessLevel - User's fitness level
- * @returns {Array} Transformed exercises
- */
 function transformExerciseResponse(apiData, fitnessLevel) {
-  // Handle different possible response formats
   let exercises = [];
 
   if (apiData.exercises && Array.isArray(apiData.exercises)) {
@@ -78,7 +57,6 @@ function transformExerciseResponse(apiData, fitnessLevel) {
     return getDefaultExercises(fitnessLevel);
   }
 
-  // Transform each exercise to our format
   return exercises.map((exercise, index) => ({
     name: exercise.name || exercise.exercise_name || exercise.exercise || `Exercise ${index + 1}`,
     sets: exercise.sets || exercise.num_sets || getSetsForLevel(fitnessLevel),
@@ -90,9 +68,6 @@ function transformExerciseResponse(apiData, fitnessLevel) {
   }));
 }
 
-/**
- * Get default number of sets based on fitness level
- */
 function getSetsForLevel(level) {
   const levelLower = level?.toLowerCase() || 'beginner';
   if (levelLower === 'advanced') return 4;
@@ -100,9 +75,6 @@ function getSetsForLevel(level) {
   return 3;
 }
 
-/**
- * Get default number of reps based on fitness level
- */
 function getRepsForLevel(level) {
   const levelLower = level?.toLowerCase() || 'beginner';
   if (levelLower === 'advanced') return 8;
@@ -110,9 +82,6 @@ function getRepsForLevel(level) {
   return 12;
 }
 
-/**
- * Get default rest time based on fitness level
- */
 function getRestForLevel(level) {
   const levelLower = level?.toLowerCase() || 'beginner';
   if (levelLower === 'advanced') return 90;
@@ -120,11 +89,6 @@ function getRestForLevel(level) {
   return 60;
 }
 
-/**
- * Returns default exercises if API fails
- * @param {string} level - Fitness level
- * @returns {Array} Default exercises
- */
 function getDefaultExercises(level) {
   const levelLower = level?.toLowerCase() || 'beginner';
   

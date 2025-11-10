@@ -36,7 +36,6 @@ export function AuthProvider({ children }) {
     }
   };
 
-  // Whenever auth user changes, refresh profile
   useEffect(() => {
     if (user) {
       refreshProfile();
@@ -49,7 +48,6 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     try {
       await signOutUser();
-      // redirect to home for a cleaner UX after logout
       navigate('/');
     } catch (err) {
       console.error('Sign out failed', err);
