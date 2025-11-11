@@ -1,7 +1,7 @@
 async function testNutritionAPI() {
   const API_URL = 'https://exercise-api-cvza.onrender.com';
   
-  console.log('🧪 Testing Nutrition/Diet API...');
+  console.log('Testing Nutrition/Diet API...');
   console.log('API URL:', API_URL);
   
   const endpoints = [
@@ -26,7 +26,7 @@ async function testNutritionAPI() {
   
   for (const endpoint of endpoints) {
     try {
-      console.log(`\n📡 Testing ${endpoint.method} ${endpoint.path}...`);
+  console.log(`\nTesting ${endpoint.method} ${endpoint.path}...`);
       
       const options = {
         method: endpoint.method,
@@ -38,18 +38,18 @@ async function testNutritionAPI() {
       }
       
       const response = await fetch(`${API_URL}${endpoint.path}`, options);
-      console.log(`✅ Status: ${response.status} ${response.statusText}`);
+  console.log(`Status: ${response.status} ${response.statusText}`);
       
       const contentType = response.headers.get('content-type');
       if (contentType && contentType.includes('application/json')) {
         const data = await response.json();
-        console.log('📦 Response:', data);
+  console.log('Response:', data);
       } else {
         const text = await response.text();
-        console.log('📝 Response:', text);
+  console.log('Response:', text);
       }
     } catch (error) {
-      console.error(`❌ Error:`, error.message);
+  console.error(`Error:`, error.message);
     }
   }
 }
@@ -57,7 +57,7 @@ async function testNutritionAPI() {
 async function testWorkoutAPI() {
   const API_URL = 'https://workout-type-api.onrender.com';
   
-  console.log('\n\n🏋️ Testing Workout API...');
+  console.log('\n\nTesting Workout API...');
   console.log('API URL:', API_URL);
   
   const testData = {
@@ -73,30 +73,30 @@ async function testWorkoutAPI() {
   };
   
   try {
-    console.log('\n📡 Testing POST /predict...');
+  console.log('\nTesting POST /predict...');
     const response = await fetch(`${API_URL}/predict`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(testData)
     });
     
-    console.log(`✅ Status: ${response.status} ${response.statusText}`);
+  console.log(`Status: ${response.status} ${response.statusText}`);
     const data = await response.json();
-    console.log('📦 Response:', data);
+  console.log('Response:', data);
   } catch (error) {
-    console.error(`❌ Error:`, error.message);
+  console.error(`Error:`, error.message);
   }
 }
 
 async function runTests() {
-  console.log('🚀 Starting API Tests...\n');
+  console.log('Starting API Tests...\n');
   console.log('=' . repeat(50));
   
   await testNutritionAPI();
   await testWorkoutAPI();
   
   console.log('\n' + '='.repeat(50));
-  console.log('✅ Tests Complete!');
+  console.log('Tests Complete!');
   console.log('\nCheck the output above to see:');
   console.log('1. Which endpoints work');
   console.log('2. What data format the API expects');
@@ -108,7 +108,7 @@ if (typeof window !== 'undefined') {
   window.testNutrition = testNutritionAPI;
   window.testWorkout = testWorkoutAPI;
   
-  console.log('🧪 API Testing Tools Loaded!');
+  console.log('API Testing Tools Loaded!');
   console.log('Run in browser console:');
   console.log('  window.testAPIs()      - Test all APIs');
   console.log('  window.testNutrition() - Test nutrition API only');
