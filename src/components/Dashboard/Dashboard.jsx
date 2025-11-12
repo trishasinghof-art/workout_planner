@@ -15,7 +15,7 @@ const Dashboard = () => {
   const [loadingWorkout, setLoadingWorkout] = useState(false);
   const [workoutError, setWorkoutError] = useState(null);
 
-  const [selectedDay, setSelectedDay] = useState(1);
+
 
   
   const capitalize = (str) => {
@@ -61,7 +61,7 @@ const Dashboard = () => {
       setWorkoutError(null);
 
       try {
-        const recommendations = await getWorkoutRecommendations({ ...profile, day: selectedDay });
+  const recommendations = await getWorkoutRecommendations({ ...profile });
         console.log("Raw API response:", recommendations);
 
         if (!recommendations) {
@@ -94,7 +94,7 @@ const Dashboard = () => {
     };
 
     fetchWorkouts();
-  }, [profile, selectedDay]);
+  }, [profile]);
 
   return (
     <>
@@ -117,18 +117,7 @@ const Dashboard = () => {
             </>
           )}
         </div>
-        <div style={{ marginTop: 16, display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {[...Array(7)].map((_, idx) => (
-            <button
-              key={idx}
-              className={`tag${selectedDay === idx + 1 ? ' tag-selected' : ''}`}
-              style={{ cursor: 'pointer', border: 'none', outline: 'none', background: selectedDay === idx + 1 ? '#B144FF' : '#232b36', color: '#fff', borderRadius: 20, padding: '6px 16px', fontWeight: 500, fontSize: 15, transition: 'background 0.2s' }}
-              onClick={() => setSelectedDay(idx + 1)}
-            >
-              Day - {idx + 1}
-            </button>
-          ))}
-        </div>
+        {/* Removed day selection buttons */}
       </div>
 
       <div className="dashboard-main">
