@@ -17,9 +17,9 @@ export async function predictWorkoutType(userProfile) {
     };
 
     console.log('Predicting workout type with data:', requestBody);
-    console.log('Using API URL:', `${WORKOUT_TYPE_API_URL}/predict_workout_type`);
+    console.log('Using API URL:', `${WORKOUT_TYPE_API_URL}/predict`);
 
-    const response = await fetch(`${WORKOUT_TYPE_API_URL}/predict_workout_type`, {
+    const response = await fetch(`${WORKOUT_TYPE_API_URL}/predict`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
