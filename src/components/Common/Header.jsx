@@ -14,7 +14,6 @@ function Header() {
         <nav className="main-nav">
            <Link to="/">Home</Link>
           <Link to="/programs">Programs</Link>
-          <Link to="/trainers">Trainers</Link>
           <Link to="/blog">Blog</Link>
           {!user ? (
                       <>

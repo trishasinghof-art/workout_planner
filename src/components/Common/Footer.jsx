@@ -11,7 +11,6 @@ const Footer = () => {
             <h2 className="footer-logo">BodySync</h2>
             <ul>
               <li><Link to="/programs">Programs</Link></li>
-              <li><Link to="/trainers">Trainers</Link></li>
               <li><Link to="/blog">Blogs</Link></li>
               <li><Link to="/signin">Signin</Link></li>
             </ul>
