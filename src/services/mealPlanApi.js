@@ -5,22 +5,46 @@ const MEAL_PLAN_API_URL = USE_PROXY
 
 export async function generateMealPlan(macros, userPreferences = {}) {
   try {
+    const dietTypeNormalized = userPreferences.dietType?.toLowerCase();
+    let foodPreference = 'any';
+    if (dietTypeNormalized) {
+      if (dietTypeNormalized.includes('vegan')) foodPreference = 'vegan';
+      else if (dietTypeNormalized.includes('veg') && !dietTypeNormalized.includes('non')) foodPreference = 'vegetarian';
+      else if (dietTypeNormalized.includes('pesc')) foodPreference = 'pescatarian';
+      else if (dietTypeNormalized.includes('keto')) foodPreference = 'keto';
+      else if (dietTypeNormalized.includes('paleo')) foodPreference = 'paleo';
+      else if (dietTypeNormalized.includes('mediterranean')) foodPreference = 'mediterranean';
+      else foodPreference = dietTypeNormalized;
+    }
+
     const requestBody = {
       calories: macros.calories || 2000,
+      calories_kcal: macros.calories || 2000, // required by /predict endpoint
       protein: macros.protein || 150,
       carbs: macros.carbs || 200,
       fat: macros.fat || 65,
+      protein_g: macros.protein || 150,
+      carbs_g: macros.carbs || 200,
+      fat_g: macros.fat || 65,
+  fats_g: macros.fat || 65,
+      protein_grams: macros.protein || 150,
+      carbs_grams: macros.carbs || 200,
+      fat_grams: macros.fat || 65,
       diet_type: userPreferences.dietType?.toLowerCase() || 'balanced',
+  food_preference: foodPreference,
       meals_per_day: userPreferences.mealsPerDay || 4,
+      day_index: userPreferences.day || userPreferences.dayIndex || 1,
+      day: userPreferences.day || 1,
+      dayIndex: userPreferences.dayIndex || userPreferences.day || 1,
       allergies: userPreferences.allergies || [],
       disliked_foods: userPreferences.dislikedFoods || [],
       cuisine_preference: userPreferences.cuisinePreference || 'any',
     };
 
     console.log('Generating meal plan with data:', requestBody);
-    console.log('Using API URL:', `${MEAL_PLAN_API_URL}/generate`);
+    console.log('Using API URL:', `${MEAL_PLAN_API_URL}/predict`);
 
-    const response = await fetch(`${MEAL_PLAN_API_URL}/generate`, {
+    const response = await fetch(`${MEAL_PLAN_API_URL}/predict`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

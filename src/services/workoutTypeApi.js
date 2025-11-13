@@ -8,8 +8,8 @@ export async function predictWorkoutType(userProfile) {
     const requestBody = {
       age: userProfile.age || 25,
       gender: userProfile.gender?.toLowerCase() || 'male',
-      weight: userProfile.weight || 70,
-      height: userProfile.height || 170,
+      weight_kg: userProfile.weight || 70,
+      height_cm: userProfile.height || 170,
       fitness_level: userProfile.level?.toLowerCase() || 'beginner',
       goal: userProfile.goal?.toLowerCase() || 'general fitness',
       workouts_per_week: userProfile.workoutsPerWeek || 3,
@@ -17,9 +17,9 @@ export async function predictWorkoutType(userProfile) {
     };
 
     console.log('Predicting workout type with data:', requestBody);
-    console.log('Using API URL:', `${WORKOUT_TYPE_API_URL}/predict`);
+    console.log('Using API URL:', `${WORKOUT_TYPE_API_URL}/predict_workout_type`);
 
-    const response = await fetch(`${WORKOUT_TYPE_API_URL}/predict`, {
+    const response = await fetch(`${WORKOUT_TYPE_API_URL}/predict_workout_type`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

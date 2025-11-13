@@ -3,6 +3,14 @@ const MACRO_API_URL = USE_PROXY
   ? '/api/macro'
   : 'https://macro-api-igmt.onrender.com';
 
+function mapActivityToFitnessLevel(activityLevel) {
+  const a = (activityLevel || '').toLowerCase();
+  if (['sedentary', 'light', 'lightly active', 'low'].includes(a)) return 'beginner';
+  if (['moderate', 'moderately active', 'medium'].includes(a)) return 'intermediate';
+  if (['active', 'very active', 'high', 'intense'].includes(a)) return 'advanced';
+  return 'beginner';
+}
+
 export async function calculateMacros(userProfile) {
   try {
     const requestBody = {
@@ -13,12 +21,19 @@ export async function calculateMacros(userProfile) {
       activity_level: userProfile.activityLevel?.toLowerCase() || 'moderate',
       goal: userProfile.goal?.toLowerCase() || 'maintenance',
       diet_type: userProfile.dietType?.toLowerCase() || 'balanced',
+      weight_kg: userProfile.weight || userProfile.weight_kg || 70,
+      height_cm: userProfile.height || userProfile.height_cm || 170,
+      fitness_level: (userProfile.level?.toLowerCase())
+        || mapActivityToFitnessLevel(userProfile.activityLevel)
+        || 'beginner',
+      target_weight: userProfile.targetWeight || userProfile.target_weight || userProfile.weight || 70,
+      day_index: userProfile.day || userProfile.day_index || 1,
     };
 
     console.log('Calculating macros with data:', requestBody);
-    console.log('Using API URL:', `${MACRO_API_URL}/calculate`);
+    console.log('Using API URL:', `${MACRO_API_URL}/predict`);
 
-    const response = await fetch(`${MACRO_API_URL}/calculate`, {
+    const response = await fetch(`${MACRO_API_URL}/predict`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

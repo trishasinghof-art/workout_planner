@@ -8,13 +8,13 @@ export async function getExerciseSuggestions(workoutType, userProfile = {}) {
     const requestBody = {
       workout_type: workoutType,
       fitness_level: userProfile.level?.toLowerCase() || 'beginner',
-      goal: userProfile.goal?.toLowerCase() || 'general fitness',
+      day_index: userProfile.day || 1,
     };
 
     console.log('Fetching exercise suggestions with data:', requestBody);
-    console.log('Using API URL:', `${EXERCISE_API_URL}/suggest`);
+    console.log('Using API URL:', `${EXERCISE_API_URL}/get_day_exercises`);
 
-    const response = await fetch(`${EXERCISE_API_URL}/suggest`, {
+    const response = await fetch(`${EXERCISE_API_URL}/get_day_exercises`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
